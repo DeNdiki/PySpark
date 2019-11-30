@@ -17,15 +17,6 @@ int(o.split('|')[14].encode("utf-8")), o.split('|')[15], o.split('|')[16], float
 replace(',','.')), float((o.split('|')[19]).encode('utf-8').replace(',','.')), o.split('|')[22].encode('utf-8'))).\
 map(lambda o: Row(agence = o[0], dte_naiss = o[1], sexe = o[2], statut_matrimonial = o[3], nationalite = o[4], type_client = o[5],\
 cpro = o[6], dte_ouverture = o[7], compte = o[8], solde = o[9], solde_arete = o[10], nom_client = o[11])).toDF()
-+------+-----------+----+----------+-------------+-----------+--------------------+----+----------+-----------+------------------+-----------+
-|agence|     compte|cpro| dte_naiss|dte_ouverture|nationalite|          nom_client|sexe|     solde|solde_arete|statut_matrimonial|type_client|
-+------+-----------+----+----------+-------------+-----------+--------------------+----+----------+-----------+------------------+-----------+
-| 10000|00600003001|   6|01/01/1980|   23/11/2010|   CAMEROUN|SOPIE CYRILLE  HERVE|   M|      88.0|       88.0|          MARIE(E)|          1|
-| 10000|00600003101|   6|01/01/1980|   23/11/2010|   CAMEROUN|            ALGEFY .|   M|   75701.0|    75701.0|          MARIE(E)|          1|
-| 10000|00600003401|   6|01/01/1980|   02/12/2010|   CAMEROUN|      HAMIDOU  BELLO|   M|       0.0|        0.0|          MARIE(E)|          1|
-| 10000|00600003701|   6|01/01/1980|   22/12/2010|   CAMEROUN|    TATCHOM  GABRIEL|   M|  344217.0|     1949.0|          MARIE(E)|          1|
-| 10000|00600003901|   6|01/01/1980|   22/12/2010|   CAMEROUN|NJEL KOND JEAN  C...|   M|       0.0|        0.0|          MARIE(E)|          1|
-+------+-----------+----+----------+-------------+-----------+--------------------+----+----------+-----------+------------------+-----------+
 
 
 produits_df = produits_rdd.filter(lambda p: p.split('|')[0].encode('utf-8').strip() != 'CPRO').\
